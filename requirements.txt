@@ -1,0 +1,6 @@
+django==2.0
+requests
+bs4
+gunicorn
+django-heroku
+psycopg2-binary
