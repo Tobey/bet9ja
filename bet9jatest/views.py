@@ -17,7 +17,7 @@ form_data = {k: v[0] for k, v in parse_qs(form_data).items()}
 
 class HomeView(View):
     def __get(self, request, *args, **kwargs):
-        contex = dict()
+        context = dict()
         booking = request.GET.get('booking', None)
         stuff = None
 
@@ -50,13 +50,13 @@ class HomeView(View):
                 print(f'{competition}  | {teams} | {thing}  | {odds} ')
                 stuff.append([competition, teams, thing, odds])
 
-        contex['stuff'] = stuff
-        contex['booking'] = booking
-        return context
-
+        context['stuff'] = stuff
+        context['booking'] = booking
+        return 
+    
     def get(self, request, *args, **kwargs):  
         context = self.__get(request, *args, **kwargs)
-        return render(request, 'index.html', context=contex)
+        return render(request, 'index.html', context=context)
 
 class ApiView(HomeView):
     
