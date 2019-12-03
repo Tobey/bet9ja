@@ -3,7 +3,7 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import parse_qs
-
+from rest_framework.views import APIView
 from django.http import JsonResponse
 
 
@@ -14,9 +14,8 @@ h%24w%24SM=h%24w%24PC%24cCoupon%24atlasCoupon%7Ch%24w%24PC%24cCoupon%24btnAddCou
 '''.strip()
 form_data = {k: v[0] for k, v in parse_qs(form_data).items()}
 
-
-class HomeView(View):
-    def __get(self, request, *args, **kwargs):
+class Base:
+    def base_get(self, request, *args, **kwargs):
         context = dict()
         booking = request.GET.get('booking', None)
         stuff = None
@@ -52,16 +51,19 @@ class HomeView(View):
 
         context['stuff'] = stuff
         context['booking'] = booking
-        return 
+    return context
+
+
+class HomeView(Base, View):    
     
     def get(self, request, *args, **kwargs):  
-        context = self.__get(request, *args, **kwargs)
+        context = self.base_get(request, *args, **kwargs)
         return render(request, 'index.html', context=context)
 
-class ApiView(HomeView):
+class ApiView(Base, APIView):
     
    def get(self, request, *args, **kwargs):  
-       context = self.__get(request, *args, **kwargs)
+       context = self.base_get(request, *args, **kwargs)
        return JsonResponse(context)
     
     
