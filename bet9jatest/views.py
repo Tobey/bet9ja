@@ -28,7 +28,8 @@ class HomeView(View):
             session.headers.update(headers)
             r = session.get(home_page)
             
-            headers['Cookie'] = r.headers['Set-Cookie']
+            # headers['Cookie'] = r.headers['Set-Cookie']
+            headers['Cookie'] = 'SBets_CurrentCulture=2; ISBets_CurrentOddsFormat=1; ISBets_CurrentGMT=35; mb9j_nodesession=2030110474.20480.0000; ASP.NET_SessionId=d2klaohkm0imwxu5jni12g4a; _ga=GA1.2.1951396111.1575407400; _gid=GA1.2.483641337.1575407400; _fbp=fb.1.1575407400286.2144714362; _hjid=72d179a7-1dc7-4ad4-860d-dd55bb26582e'
             
             new_form = form_data.copy()
             new_form['h$w$PC$cCoupon$txtPrenotatore'] = booking
