@@ -55,13 +55,13 @@ class HomeView(View):
         return context
 
     def get(self, request, *args, **kwargs):  
-        context = self._get(request, *args, **kwargs):
+        context = self._get(request, *args, **kwargs)
         return render(request, 'index.html', context=contex)
 
 class ApiView(HomeView):
     
    def get(self, request, *args, **kwargs):  
-       context = self._get(request, *args, **kwargs):
+       context = self._get(request, *args, **kwargs)
        return JsonResponse(context)
     
     
