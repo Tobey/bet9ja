@@ -14,8 +14,8 @@ h%24w%24SM=h%24w%24PC%24cCoupon%24atlasCoupon%7Ch%24w%24PC%24cCoupon%24btnAddCou
 '''.strip()
 form_data = {k: v[0] for k, v in parse_qs(form_data).items()}
 
-class Base:
-    def base_get(self, request, *args, **kwargs):
+class Bet9jaScraper:
+    def get_stuff(self, request, *args, **kwargs):
         context = dict()
         booking = request.GET.get('booking', None)
         stuff = None
@@ -27,11 +27,11 @@ class Base:
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
             }
             session.headers.update(headers)
-            r = session.get(home_page)
-            
-            # headers['Cookie'] = r.headers['Set-Cookie']
-            headers['Cookie'] = 'SBets_CurrentCulture=2; ISBets_CurrentOddsFormat=1; ISBets_CurrentGMT=35; mb9j_nodesession=2030110474.20480.0000; ASP.NET_SessionId=d2klaohkm0imwxu5jni12g4a; _ga=GA1.2.1951396111.1575407400; _gid=GA1.2.483641337.1575407400; _fbp=fb.1.1575407400286.2144714362; _hjid=72d179a7-1dc7-4ad4-860d-dd55bb26582e'
-            
+            session.get(home_page)
+            cookie_jar = ''
+            for cookie in session.cookies:
+                cookie_jar += f'{cookie.name}={cookie.value}; '
+            headers['Cookie'] = cookie_jar
             new_form = form_data.copy()
             new_form['h$w$PC$cCoupon$txtPrenotatore'] = booking
             response = session.post(home_page, data=new_form, headers=headers)
@@ -54,16 +54,16 @@ class Base:
         return context
 
 
-class HomeView(Base, View):    
+class HomeView(Bet9jaScraper, View):    
     
     def get(self, request, *args, **kwargs):  
-        context = self.base_get(request, *args, **kwargs)
+        context = self.get_stuff(request, *args, **kwargs)
         return render(request, 'index.html', context=context)
 
-class ApiView(Base, APIView):
+class ApiView(Bet9jaScraper, APIView):
     
    def get(self, request, *args, **kwargs):  
-       context = self.base_get(request, *args, **kwargs)
+       context = self.get_stuff(request, *args, **kwargs)
        return JsonResponse(context)
     
     
