@@ -20,5 +20,6 @@ from . import views
 
 urlpatterns = [
     path('', views.HomeView.as_view(), name='index'),
+    path('api', views.ApiView.as_view(), name='api'),
     # path('admin/', admin.site.urls),
 ]
