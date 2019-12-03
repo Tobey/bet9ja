@@ -51,7 +51,7 @@ class Base:
 
         context['stuff'] = stuff
         context['booking'] = booking
-    return context
+        return context
 
 
 class HomeView(Base, View):    
