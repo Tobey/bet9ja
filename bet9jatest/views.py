@@ -8,7 +8,7 @@ from urllib.parse import parse_qs
 session = requests.Session()
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-    'Cookie': 'ISBets_CurrentCulture=2; ISBets_CurrentOddsFormat=1; ISBets_CurrentGMT=35; mb9j_nodesession=2080442122.20480.0000; ASP.NET_SessionId=rvihdpfybl2roqr0o3eqdfkc; _fbp=fb.1.1575384738794.998106403; _ga=GA1.2.942979839.1575384739; _gid=GA1.2.426>',
+    'Cookie': 'ISBets_CurrentCulture=2; ISBets_CurrentOddsFormat=1; ISBets_CurrentGMT=35; mb9j_nodesession=2030110474.20480.0000; ASP.NET_SessionId=d2klaohkm0imwxu5jni12g4a; _ga=GA1.2.1951396111.1575407400; _gid=GA1.2.483641337.1575407400; _fbp=fb.1.1575407400286.2144714362; _hjid=72d179a7-1dc7-4ad4-860d-dd55bb26582e',
 }
 session.headers.update(headers)
 home_page = 'https://web.bet9ja2.com/Sport/Odds'
