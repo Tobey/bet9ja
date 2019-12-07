@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 
 
-home_page = 'https://web.bet9ja2.com/Sport/Odds'
+home_page = 'https://web.bet9ja2.com/Sport/Default.aspx'
 
 class Bet9jaScraper:
     def get_stuff(self, request, *args, **kwargs):
