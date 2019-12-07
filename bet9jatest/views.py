@@ -34,7 +34,7 @@ class Bet9jaScraper:
             session = requests.Session()
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
-                'Cookie': '_fbp=fb.1.1575407400286.2144714362; _ga=GA1.2.1951396111.1575407400; _gid=GA1.2.790801012.1575680974; _hjid=72d179a7-1dc7-4ad4-860d-dd55bb26582e; landingRedirection=true; ASP.NET_SessionId=le3yjitlw0ehc2siqnvvjaaw; ISBets_CurrentCulture=2; ISBets_CurrentGMT=35; ISBets_CurrentOddsFormat=1; mb9j_nodesession=2046887690.20480.0000',
+                'Cookie': 'ASP.NET_SessionId=dxefh1vqng0axa2adjei2x2t; _fbp=fb.1.1575407400286.2144714362; _ga=GA1.2.1951396111.1575407400; _gid=GA1.2.790801012.1575680974; _hjid=72d179a7-1dc7-4ad4-860d-dd55bb26582e; landingRedirection=true; ISBets_CurrentCulture=2; ISBets_CurrentGMT=35; ISBets_CurrentOddsFormat=1; mb9j_nodesession=2080442122.20480.0000',
             }
             session.headers.update(headers)
             session.get(home_page)
