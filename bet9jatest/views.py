@@ -76,7 +76,7 @@ class Bet9jaScraper:
                 "__ASYNCPOST": "true",
             }
 
-            response = requests.post(home_page, data=new_form, headers=headers)
+            response = requests.post(home_page, data=form_data, headers=headers)
 
             s = BeautifulSoup(response.text)
             thing = s.select('.CItem.te1')
