@@ -27,11 +27,8 @@ class Bet9jaScraper:
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36',
             }
             session.headers.update(headers)
-            session.get(home_page)
-            cookie_jar = ''
-            for cookie in session.cookies:
-                cookie_jar += f'{cookie.name}={cookie.value}; '
-            headers['Cookie'] = cookie_jar
+            r = session.get(home_page)
+            headers['Cookie'] = '; '.join([f'{c.name}={c.value}' for c in r.cookies]) + '; ' + '; '.join([f'{c.name}={c.value}' for c in session.cookies])
             new_form = form_data.copy()
             new_form['h$w$PC$cCoupon$txtPrenotatore'] = booking
             response = session.post(home_page, data=new_form, headers=headers)
