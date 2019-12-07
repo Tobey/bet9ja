@@ -74,6 +74,7 @@ class Bet9jaScraper:
                 "__VIEWSTATEGENERATOR": "15C4A0A3",
                 "__VIEWSTATEENCRYPTED": "",
                 "__ASYNCPOST": "true",
+            }
 
             response = requests.post(home_page, data=new_form, headers=headers)
 
