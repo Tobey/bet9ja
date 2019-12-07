@@ -9,7 +9,7 @@ from django.http import JsonResponse
 
 
 home_page = 'https://web.bet9ja2.com/Sport/Odds'
-fform_data = {
+form_data = {
              'h$w$PC$cCoupon$hidAttesa': '0',
              'h$w$PC$cCoupon$hidBonusNumScommesse': '1',
              'h$w$PC$cCoupon$hidBonusQuotaMinimaAttivo': '0',
